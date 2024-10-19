@@ -1,8 +1,12 @@
 package vistacontrolador;
 
+import static BBDD.BBDD.cargarUsuarios;
+import static BBDD.BBDD.crearBaseDeDatos;
+import static BBDD.BBDD.crearTablaUsuarios;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 import static modelo.Usuario.hardcodeados;
+import static modelo.Usuario.recorrerUsers;
 
 public class Ventana1 extends javax.swing.JFrame {
 
@@ -22,6 +26,7 @@ public class Ventana1 extends javax.swing.JFrame {
         mostrar_ckbx = new javax.swing.JCheckBox();
         loguear_button = new javax.swing.JButton();
         password_field = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +62,13 @@ public class Ventana1 extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Crear una nueva cuenta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
@@ -67,9 +79,6 @@ public class Ventana1 extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(textoCredenciales_lbl))
                     .addGroup(panelPrincipalLayout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(loguear_button))
-                    .addGroup(panelPrincipalLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(password_lbl)
@@ -78,10 +87,16 @@ public class Ventana1 extends javax.swing.JFrame {
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(usuario_field, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelPrincipalLayout.createSequentialGroup()
-                                .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(password_field, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
                                 .addGap(34, 34, 34)
                                 .addComponent(mostrar_ckbx)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(loguear_button)
+                .addGap(154, 154, 154))
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +114,9 @@ public class Ventana1 extends javax.swing.JFrame {
                     .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addComponent(loguear_button)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,7 +156,7 @@ public class Ventana1 extends javax.swing.JFrame {
         boolean existe = false;
         String nombre_usr = usuario_field.getText();
         String password = passwordToString();
-        
+
         if (existeUsr()) {
             Ventana2 ventana2 = new Ventana2(nombre_usr);// primero me la instancio y luego la hago visible
             ventana2.setVisible(true);
@@ -151,7 +168,7 @@ public class Ventana1 extends javax.swing.JFrame {
         int indice = 0;
         boolean existe = false;
         for (int i = 0; i < hardcodeados.size(); i++) {
-            if (hardcodeados.get(i).getNombre().equalsIgnoreCase(usuario_field.getText())) {
+            if (hardcodeados.get(i).getUsuario().equalsIgnoreCase(usuario_field.getText())) {
                 existe = true;
                 break;
             }
@@ -198,8 +215,15 @@ public class Ventana1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_usuario_fieldActionPerformed
 
-    public static void main(String args[]) {
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //mandar a una tercera ventana para meter hi los datos y desde ahi los paso a crear user de la bbdd
+    }//GEN-LAST:event_jButton1ActionPerformed
 
+    public static void main(String args[]) {
+        crearBaseDeDatos();
+        crearTablaUsuarios();
+        hardcodeados = cargarUsuarios();
+        //recorrerUsers(hardcodeados);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Ventana1().setVisible(true);
@@ -208,6 +232,7 @@ public class Ventana1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton loguear_button;
     private javax.swing.JCheckBox mostrar_ckbx;
     private javax.swing.JPanel panelPrincipal;
