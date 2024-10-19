@@ -139,12 +139,15 @@ public class Ventana1 extends javax.swing.JFrame {
         boolean existe = false;
         String nombre_usr = usuario_field.getText();
         String password = passwordToString();
-
-        existeUsr();
+        
+        if (existeUsr()) {
+            Ventana2 ventana2 = new Ventana2(nombre_usr);// primero me la instancio y luego la hago visible
+            ventana2.setVisible(true);
+        }
 
 
     }//GEN-LAST:event_loguear_buttonActionPerformed
-    private void existeUsr() {
+    private boolean existeUsr() {
         int indice = 0;
         boolean existe = false;
         for (int i = 0; i < hardcodeados.size(); i++) {
@@ -156,20 +159,27 @@ public class Ventana1 extends javax.swing.JFrame {
         }
 
         if (existe) {
-            comprobarPassword(usuario_field.getText(), indice);
+            if (comprobarPassword(usuario_field.getText(), indice)) {
+                return true;
+            } else {
+                return false;
+            }
+
         } else {
             JOptionPane.showMessageDialog(null, "¡El usuario que ha introducido no existe!");
             resetearValores();
+            return false;
         }
     }
 
-    public void comprobarPassword(String nombre_usr, int index) {
+    public boolean comprobarPassword(String nombre_usr, int index) {
         if (hardcodeados.get(index).getPassword().equalsIgnoreCase(passwordToString())) {
-            //saltar a la ventana 
+            return true;
         } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
             usuario_field.setText("");
             password_field.setText("");
+            return false;
         }
 
     }
