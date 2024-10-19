@@ -26,7 +26,7 @@ public class Ventana1 extends javax.swing.JFrame {
         mostrar_ckbx = new javax.swing.JCheckBox();
         loguear_button = new javax.swing.JButton();
         password_field = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        nuevaCuenta_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,10 +62,10 @@ public class Ventana1 extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Crear una nueva cuenta");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        nuevaCuenta_button.setText("Crear una nueva cuenta");
+        nuevaCuenta_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                nuevaCuenta_buttonActionPerformed(evt);
             }
         });
 
@@ -88,7 +88,7 @@ public class Ventana1 extends javax.swing.JFrame {
                             .addComponent(usuario_field, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelPrincipalLayout.createSequentialGroup()
                                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nuevaCuenta_button, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(password_field, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
                                 .addGap(34, 34, 34)
                                 .addComponent(mostrar_ckbx)))))
@@ -115,7 +115,7 @@ public class Ventana1 extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addComponent(loguear_button)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nuevaCuenta_button, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -215,9 +215,11 @@ public class Ventana1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_usuario_fieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //mandar a una tercera ventana para meter hi los datos y desde ahi los paso a crear user de la bbdd
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void nuevaCuenta_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaCuenta_buttonActionPerformed
+        Ventana_new_Users ventana3 = new Ventana_new_Users();
+        ventana3.setVisible(true);
+//mandar a una tercera ventana para meter ahi los datos y desde ahi los paso a crear user de la bbdd
+    }//GEN-LAST:event_nuevaCuenta_buttonActionPerformed
 
     public static void main(String args[]) {
         crearBaseDeDatos();
@@ -232,9 +234,9 @@ public class Ventana1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton loguear_button;
     private javax.swing.JCheckBox mostrar_ckbx;
+    private javax.swing.JButton nuevaCuenta_button;
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JPasswordField password_field;
     private javax.swing.JLabel password_lbl;
