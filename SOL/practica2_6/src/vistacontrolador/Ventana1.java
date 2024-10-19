@@ -4,6 +4,7 @@ import static BBDD.BBDD.cargarUsuarios;
 import static BBDD.BBDD.crearBaseDeDatos;
 import static BBDD.BBDD.crearTablaUsuarios;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import modelo.Usuario;
 import static modelo.Usuario.hardcodeados;
 import static modelo.Usuario.recorrerUsers;
@@ -155,8 +156,11 @@ public class Ventana1 extends javax.swing.JFrame {
     private void loguear_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loguear_buttonActionPerformed
         boolean existe = false;
         String nombre_usr = usuario_field.getText();
-        String password = passwordToString();
-
+        String password = passwordToString(password_field);
+        if (nombre_usr.equalsIgnoreCase("")||password.equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña vacios!", "Campo/s Vacio/s", HEIGHT);
+            return;
+        }
         if (existeUsr()) {
             Ventana2 ventana2 = new Ventana2(nombre_usr);// primero me la instancio y luego la hago visible
             ventana2.setVisible(true);
@@ -190,7 +194,7 @@ public class Ventana1 extends javax.swing.JFrame {
     }
 
     public boolean comprobarPassword(String nombre_usr, int index) {
-        if (hardcodeados.get(index).getPassword().equalsIgnoreCase(passwordToString())) {
+        if (hardcodeados.get(index).getPassword().equalsIgnoreCase(passwordToString(password_field))) {
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
@@ -201,10 +205,10 @@ public class Ventana1 extends javax.swing.JFrame {
 
     }
 
-    public String passwordToString() {
-        char[] passwordChars = password_field.getPassword(); // Obtener la contraseña
-        String password = new String(passwordChars);
-        return password;
+    public static String passwordToString(JPasswordField password) {
+        char[] passwordChars = password.getPassword(); // Obtener la contraseña
+        String password_resultante = new String(passwordChars);
+        return password_resultante;
     }
 
     public void resetearValores() {

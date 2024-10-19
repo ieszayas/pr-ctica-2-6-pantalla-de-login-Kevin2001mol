@@ -55,58 +55,61 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="texto_confirmarContraseña_ventanaNewUsers" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="confirmarContraseña_lbl" min="-2" max="-2" attributes="0"/>
-                                      <Component id="infoEsencial_lbl" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="usuario_lbl_ventanaNewUsers" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="texto_user_ventanaNewUsers" min="-2" pref="100" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="contraseña_lbl_ventanaNewUsers" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="texto_contraseña_ventanaNewUsers" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="infoEsencial_lbl" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="usuario_lbl_ventanaNewUsers" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="contraseña_lbl_ventanaNewUsers" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <Component id="confirmarContraseña_lbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="73" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="texto_user_ventanaNewUsers" pref="100" max="32767" attributes="0"/>
+                                          <Component id="texto_contraseña_ventanaNewUsers" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="texto_confirmarContraseña_ventanaNewUsers" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="correo_lbl_ventanaNewUsers" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="texto_correo_ventanaNewUsers" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="apellidos_lbl_ventanaNewUsers" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Volver_button_ventanaNewUsers" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="apellidos_lbl_ventanaNewUsers" min="-2" max="-2" attributes="0"/>
-                                              <Component id="Volver_button_ventanaNewUsers" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="32767" attributes="0"/>
                                               <Component id="agregar_button_ventanaNewUsers" min="-2" max="-2" attributes="0"/>
-                                              <Component id="texto_apellidos_ventanaNewUsers" min="-2" pref="102" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                                              <Component id="texto_apellidos_ventanaNewUsers" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="fecha_nac_lbl_ventanaNewUsers" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="nombre_lbl_ventanaNewUsers" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="correo_lbl_ventanaNewUsers" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fecha_nac_lbl_ventanaNewUsers" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="nombre_lbl_ventanaNewUsers" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="texto_nombre_ventanaNewUsers" min="-2" pref="102" max="-2" attributes="0"/>
+                                          <Component id="texto_correo_ventanaNewUsers" min="-2" pref="136" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -117,7 +120,7 @@
                           <Component id="datosAdicionales_lbl" min="-2" pref="288" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace pref="100" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -237,16 +240,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="texto_user_ventanaNewUsersActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="texto_contrase&#xf1;a_ventanaNewUsers">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="texto_contrase&#xf1;a_ventanaNewUsersActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="texto_confirmarContrase&#xf1;a_ventanaNewUsers">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="texto_confirmarContrase&#xf1;a_ventanaNewUsersActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="texto_correo_ventanaNewUsers">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="texto_correo_ventanaNewUsersActionPerformed"/>
@@ -262,6 +255,13 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="texto_apellidos_ventanaNewUsersActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="texto_contrase&#xf1;a_ventanaNewUsers">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="texto_contrase&#xf1;a_ventanaNewUsersActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="texto_confirmarContrase&#xf1;a_ventanaNewUsers">
         </Component>
       </SubComponents>
     </Container>
