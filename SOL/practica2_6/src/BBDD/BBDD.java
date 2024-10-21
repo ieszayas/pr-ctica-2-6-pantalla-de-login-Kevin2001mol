@@ -34,22 +34,24 @@ public class BBDD {
                     preparedStatement.executeUpdate();
 
                     System.out.println("Creando la base de datos " + NOMBRE_BBDD + "...");
-                    String sql_create = "CREATE DATABASE IF NOT EXISTS " + NOMBRE_BBDD;
-                    preparedStatement = conexion.prepareStatement(sql_create);
-                    preparedStatement.executeUpdate();
+                String sql_create = "CREATE DATABASE IF NOT EXISTS " + NOMBRE_BBDD;
+                preparedStatement = conexion.prepareStatement(sql_create);
+                preparedStatement.executeUpdate();
 
-                    String sql_use = "USE " + NOMBRE_BBDD + ";";
-                    preparedStatement = conexion.prepareStatement(sql_use);
-                    preparedStatement.executeUpdate();
+                String sql_use = "USE " + NOMBRE_BBDD + ";";
+                preparedStatement = conexion.prepareStatement(sql_use);
+                preparedStatement.executeUpdate();
 
-                    System.out.println("Conectado a la base de datos " + NOMBRE_BBDD);
+                System.out.println("Conectado a la base de datos " + NOMBRE_BBDD);
 
-                    // Crear las tablas
+                // Crear las tablas
                 } else {
                     String sql_use = "USE " + NOMBRE_BBDD + ";";
                     preparedStatement = conexion.prepareStatement(sql_use);
                     preparedStatement.executeUpdate();
                 }
+
+                
             }
         } catch (SQLException e) {
             e.printStackTrace();
