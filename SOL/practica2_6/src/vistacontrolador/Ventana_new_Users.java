@@ -235,7 +235,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El campo de contraseña se encuentra vacio!", "Contraseña Vacia", HEIGHT);
             return;
         }
-        if (!(password.equalsIgnoreCase(password_confirm))) {
+        if (!(password.equalsIgnoreCase(password_confirm))) {//si las contraseñas no coinciden
             JOptionPane.showMessageDialog(this, "La contraseña no se corresponde con la confirmacion de la contraseña!", "Confirmacion de contraseña erroena ", HEIGHT);
             resetearValoresContraseña();
             return;
