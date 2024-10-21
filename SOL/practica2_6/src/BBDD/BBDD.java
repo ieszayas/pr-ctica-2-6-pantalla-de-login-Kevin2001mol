@@ -182,5 +182,15 @@ public class BBDD {
 
         return usuarios;
     }
+    public static boolean agregarUsuarios(){
+        
+        
+        
+    
+    
+    
+    
+    return true;
+    }
 
 }

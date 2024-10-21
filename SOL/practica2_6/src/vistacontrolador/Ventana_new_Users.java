@@ -1,10 +1,16 @@
 package vistacontrolador;
 
+import static BBDD.BBDD.agregarUsuarios;
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
+import java.util.Date;
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import modelo.Usuario;
+import static modelo.Usuario.hardcodeados;
 import static vistacontrolador.Ventana1.passwordToString;
 
 public class Ventana_new_Users extends javax.swing.JFrame {
@@ -36,6 +42,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         texto_apellidos_ventanaNewUsers = new javax.swing.JTextField();
         texto_contraseña_ventanaNewUsers = new javax.swing.JPasswordField();
         texto_confirmarContraseña_ventanaNewUsers = new javax.swing.JPasswordField();
+        fecha_nac_calendario = new com.toedter.calendar.JDateChooser();
 
         jTextField7.setText("jTextField7");
 
@@ -140,13 +147,17 @@ public class Ventana_new_Users extends javax.swing.JFrame {
                                         .addComponent(apellidos_lbl_ventanaNewUsers)
                                         .addComponent(Volver_button_ventanaNewUsers))
                                     .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelVentanaNewUsersLayout.createSequentialGroup()
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(agregar_button_ventanaNewUsers)
-                                            .addGap(30, 30, 30))
+                                            .addGap(42, 42, 42))
                                         .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
                                             .addGap(101, 101, 101)
-                                            .addComponent(texto_apellidos_ventanaNewUsers))))
+                                            .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(texto_apellidos_ventanaNewUsers)
+                                                .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
+                                                    .addComponent(fecha_nac_calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(0, 0, Short.MAX_VALUE))))))
                                 .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
                                     .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(nombre_lbl_ventanaNewUsers)
@@ -192,13 +203,15 @@ public class Ventana_new_Users extends javax.swing.JFrame {
                 .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(apellidos_lbl_ventanaNewUsers)
                     .addComponent(texto_apellidos_ventanaNewUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(fecha_nac_lbl_ventanaNewUsers)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Volver_button_ventanaNewUsers)
-                    .addComponent(agregar_button_ventanaNewUsers))
-                .addGap(73, 73, 73))
+                .addGap(22, 22, 22)
+                .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(fecha_nac_lbl_ventanaNewUsers)
+                    .addComponent(fecha_nac_calendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(agregar_button_ventanaNewUsers)
+                    .addComponent(Volver_button_ventanaNewUsers))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -214,8 +227,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelVentanaNewUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(PanelVentanaNewUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -231,6 +243,12 @@ public class Ventana_new_Users extends javax.swing.JFrame {
     private void agregar_button_ventanaNewUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_button_ventanaNewUsersActionPerformed
         String password = passwordToString(texto_contraseña_ventanaNewUsers);
         String password_confirm = passwordToString(texto_confirmarContraseña_ventanaNewUsers);
+        Date fecha_nac = fecha_nac_calendario.getDate();
+        String usuario = texto_user_ventanaNewUsers.getText();
+        String correo = texto_correo_ventanaNewUsers.getText();
+        String nombre = texto_nombre_ventanaNewUsers.getText();
+        String apellidos = texto_apellidos_ventanaNewUsers.getText();
+
         if (password.equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(this, "El campo de contraseña se encuentra vacio!", "Contraseña Vacia", HEIGHT);
             return;
@@ -240,15 +258,30 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             resetearValoresContraseña();
             return;
         }
-        if (texto_user_ventanaNewUsers.getText().equalsIgnoreCase("")) {
+        if (usuario.equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(this, "El campo de usuario se encuentra vacio!", "Usuario Vacio", HEIGHT);
             return;
+        }
+        if (agregarUsuarios()) {
+            hardcodeados.add(obtenervalores());
+        } else {
+            JOptionPane.showMessageDialog(this, "El usuario no ha podido crearse en la base de datos!", "BBDD", HEIGHT);
         }
 
 // aqui añado al arraylist y a la base de datos
     }//GEN-LAST:event_agregar_button_ventanaNewUsersActionPerformed
+    public Usuario obtenervalores() {
 
-    public void campoVacio() {
+        String password = passwordToString(texto_contraseña_ventanaNewUsers);
+        String password_confirm = passwordToString(texto_confirmarContraseña_ventanaNewUsers);
+        Date fecha_nac = fecha_nac_calendario.getDate();
+        String usuario = texto_user_ventanaNewUsers.getText();
+        String correo = texto_correo_ventanaNewUsers.getText();
+        String nombre = texto_nombre_ventanaNewUsers.getText();
+        String apellidos = texto_apellidos_ventanaNewUsers.getText();
+
+        return new Usuario(usuario, correo, nombre, apellidos, password, fecha_nac);
+
     }
 
     public void resetearValoresContraseña() {
@@ -335,6 +368,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
     private javax.swing.JLabel contraseña_lbl_ventanaNewUsers;
     private javax.swing.JLabel correo_lbl_ventanaNewUsers;
     private javax.swing.JLabel datosAdicionales_lbl;
+    private com.toedter.calendar.JDateChooser fecha_nac_calendario;
     private javax.swing.JLabel fecha_nac_lbl_ventanaNewUsers;
     private javax.swing.JLabel infoEsencial_lbl;
     private javax.swing.JTextField jTextField7;
