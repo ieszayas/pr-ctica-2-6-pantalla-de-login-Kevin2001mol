@@ -74,7 +74,6 @@ public class BBDD {
             // Desactivar el autocommit para manejar la transacción manualmente
             conexion.setAutoCommit(false);
 
-            System.out.println("Creando la tabla usuarios...");
             statement = conexion.createStatement();
 
             String sql = "CREATE TABLE IF NOT EXISTS Usuarios ("

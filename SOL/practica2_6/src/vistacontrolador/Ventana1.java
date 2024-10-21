@@ -9,6 +9,12 @@ import modelo.Usuario;
 import static modelo.Usuario.hardcodeados;
 import static modelo.Usuario.recorrerUsers;
 
+/*
+-Se conecta correctamente a la BD elegida
+-Se muestran y gestionan errores de conexión con la BD
+-Se leen los datos de conexión de la BD de dicho fichero y no del código fuente
+-Como pongo el crear nueva cuenta en modo link?
+ */
 public class Ventana1 extends javax.swing.JFrame {
 
     public Ventana1() {
@@ -197,11 +203,9 @@ public class Ventana1 extends javax.swing.JFrame {
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
-            usuario_field.setText("");
-            password_field.setText("");
+            resetearValores();
             return false;
         }
-
     }
 
     public static String passwordToString(JPasswordField password) {
