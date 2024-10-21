@@ -243,12 +243,8 @@ public class Ventana_new_Users extends javax.swing.JFrame {
     private void agregar_button_ventanaNewUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_button_ventanaNewUsersActionPerformed
         String password = passwordToString(texto_contraseña_ventanaNewUsers);
         String password_confirm = passwordToString(texto_confirmarContraseña_ventanaNewUsers);
-        Date fecha_nac = fecha_nac_calendario.getDate();
         String usuario = texto_user_ventanaNewUsers.getText();
-        String correo = texto_correo_ventanaNewUsers.getText();
-        String nombre = texto_nombre_ventanaNewUsers.getText();
-        String apellidos = texto_apellidos_ventanaNewUsers.getText();
-
+        Usuario user = obtenervalores();
         if (password.equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(this, "El campo de contraseña se encuentra vacio!", "Contraseña Vacia", HEIGHT);
             return;
@@ -262,13 +258,17 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El campo de usuario se encuentra vacio!", "Usuario Vacio", HEIGHT);
             return;
         }
-        if (agregarUsuarios()) {
-            hardcodeados.add(obtenervalores());
+
+        if (agregarUsuarios(user)) {
+            hardcodeados.add(user);
+            JOptionPane.showMessageDialog(this, "Usuario añadido correctamente!", "BBDD", HEIGHT);
+            Ventana1 ventana1= new Ventana1();
+            ventana1.setVisible(true);
+            
         } else {
             JOptionPane.showMessageDialog(this, "El usuario no ha podido crearse en la base de datos!", "BBDD", HEIGHT);
         }
 
-// aqui añado al arraylist y a la base de datos
     }//GEN-LAST:event_agregar_button_ventanaNewUsersActionPerformed
     public Usuario obtenervalores() {
 

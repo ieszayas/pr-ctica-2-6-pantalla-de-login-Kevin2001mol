@@ -149,7 +149,7 @@ public class BBDD {
                 resultSet = statement.executeQuery(sql_return);
 
                 while (resultSet.next()) {// mientras siga habiendo cosas
-                    String usuario1=resultSet.getString("usuario");
+                    String usuario1 = resultSet.getString("usuario");
                     String correo = resultSet.getString("correo");
                     String nombre = resultSet.getString("nombre");
                     String apellidos = resultSet.getString("apellidos");
@@ -157,7 +157,7 @@ public class BBDD {
                     Date fecha_nac = resultSet.getDate("fecha_nac");
 
                     // Crear un nuevo objeto Jugador y añadirlo a la lista
-                    Usuario usuario = new Usuario(usuario1,correo, nombre, apellidos, password, fecha_nac);
+                    Usuario usuario = new Usuario(usuario1, correo, nombre, apellidos, password, fecha_nac);
                     usuarios.add(usuario);
                 }
 
@@ -182,15 +182,60 @@ public class BBDD {
 
         return usuarios;
     }
-    public static boolean agregarUsuarios(){
-        
-        
-        
-    
-    
-    
-    
-    return true;
+
+    public static boolean agregarUsuarios(Usuario usuario) {
+        Connection conexion = getConexion();
+        PreparedStatement preparedStatement = null;
+
+        try {
+
+            String sql_insert = "INSERT INTO `usuarios` (`usuario`, `correo`, `nombre`, `apellidos`, `password`, `fecha_nac`) "
+                    + "VALUES ( ?, ?, ?, ?, ?, ?)";
+            preparedStatement = conexion.prepareStatement(sql_insert);
+            preparedStatement.setString(1, usuario.getUsuario());
+            preparedStatement.setString(5, usuario.getPassword());
+            if (usuario.getNombre() != null) {
+                preparedStatement.setString(3, usuario.getNombre());
+            } else {
+
+                preparedStatement.setNull(3, java.sql.Types.VARCHAR);//hay q poner eso para que detecte que es null 
+            }
+            if (usuario.getCorreo() != null) {
+                preparedStatement.setString(2, usuario.getCorreo());
+            } else {
+                preparedStatement.setNull(2, java.sql.Types.VARCHAR);
+            }
+            if (usuario.getApellidos() != null) {
+                preparedStatement.setString(4, usuario.getApellidos());
+            } else {
+                preparedStatement.setNull(4, java.sql.Types.VARCHAR);
+            }
+            if (usuario.getFecha_nac() != null) {
+                preparedStatement.setDate(6, new java.sql.Date(usuario.getFecha_nac().getTime()));//getTime te convierte el valor a long que es lo que lee la conversion en la BBDD
+            } else {
+                preparedStatement.setNull(6, java.sql.Types.DATE);
+            }
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("Usuario agregado exitosamente en la base de datos.");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al guardar usuario en la base de datos.");
+            return false;
+        } finally {
+            // Cerrar recursos
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }

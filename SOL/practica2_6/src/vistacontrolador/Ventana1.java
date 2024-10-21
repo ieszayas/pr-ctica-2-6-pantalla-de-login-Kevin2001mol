@@ -157,7 +157,7 @@ public class Ventana1 extends javax.swing.JFrame {
         boolean existe = false;
         String nombre_usr = usuario_field.getText();
         String password = passwordToString(password_field);
-        if (nombre_usr.equalsIgnoreCase("")||password.equalsIgnoreCase("")) {
+        if (nombre_usr.equalsIgnoreCase("") || password.equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(this, "Usuario o contraseña vacios!", "Campo/s Vacio/s", HEIGHT);
             return;
         }
@@ -222,7 +222,8 @@ public class Ventana1 extends javax.swing.JFrame {
     private void nuevaCuenta_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaCuenta_buttonActionPerformed
         Ventana_new_Users ventana3 = new Ventana_new_Users();
         ventana3.setVisible(true);
-//mandar a una tercera ventana para meter ahi los datos y desde ahi los paso a crear user de la bbdd
+
+
     }//GEN-LAST:event_nuevaCuenta_buttonActionPerformed
 
     public static void main(String args[]) {
