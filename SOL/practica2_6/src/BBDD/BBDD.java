@@ -23,35 +23,55 @@ public class BBDD {
         PreparedStatement preparedStatement = null;
 
         try {
+
             if (conexion != null) {
-                System.out.println("Quieres continuar con la base de datos ya cargada?");
-                respuesta = sc.nextLine();
 
-                if (respuesta.equalsIgnoreCase("no")) {// METERLO EN FORMATEAR 
-                    System.out.println("Eliminando base de datos si existe...");
-                    String sql_delete = "DROP DATABASE IF EXISTS " + NOMBRE_BBDD;
-                    preparedStatement = conexion.prepareStatement(sql_delete);
-                    preparedStatement.executeUpdate();
+                boolean existe_bbdd = false;
+                String sql_interrogation = "SELECT SCHEMA_NAME "
+                        + "FROM information_schema.SCHEMATA "
+                        + "WHERE SCHEMA_NAME = ?"; // Usamos ? para evitar concatenar directamente
 
-                    System.out.println("Creando la base de datos " + NOMBRE_BBDD + "...");
-                String sql_create = "CREATE DATABASE IF NOT EXISTS " + NOMBRE_BBDD;
-                preparedStatement = conexion.prepareStatement(sql_create);
-                preparedStatement.executeUpdate();
+                preparedStatement = conexion.prepareStatement(sql_interrogation);
+                preparedStatement.setString(1, NOMBRE_BBDD); // Asignamos el parámetro
 
-                String sql_use = "USE " + NOMBRE_BBDD + ";";
-                preparedStatement = conexion.prepareStatement(sql_use);
-                preparedStatement.executeUpdate();
+                ResultSet resultSet = preparedStatement.executeQuery(); // Ejecutamos la consulta
 
-                System.out.println("Conectado a la base de datos " + NOMBRE_BBDD);
+                existe_bbdd = resultSet.next();
 
-                // Crear las tablas
+                if (existe_bbdd) {
+
+                    System.out.println("Quieres continuar con la base de datos ya cargada?");
+                    respuesta = sc.nextLine();
+
+                    if (respuesta.equalsIgnoreCase("no")) {// METERLO EN FORMATEAR 
+                        System.out.println("Eliminando base de datos si existe...");
+                        String sql_delete = "DROP DATABASE IF EXISTS " + NOMBRE_BBDD;
+                        preparedStatement = conexion.prepareStatement(sql_delete);
+                        preparedStatement.executeUpdate();
+
+                        System.out.println("Creando la base de datos " + NOMBRE_BBDD + "...");
+                        String sql_create = "CREATE DATABASE IF NOT EXISTS " + NOMBRE_BBDD;
+                        preparedStatement = conexion.prepareStatement(sql_create);
+                        preparedStatement.executeUpdate();
+
+                        String sql_use = "USE " + NOMBRE_BBDD + ";";
+                        preparedStatement = conexion.prepareStatement(sql_use);
+                        preparedStatement.executeUpdate();
+
+                        System.out.println("Conectado a la base de datos " + NOMBRE_BBDD);
+
+                        // Crear las tablas
+                    } else {
+                        String sql_use = "USE " + NOMBRE_BBDD + ";";
+                        preparedStatement = conexion.prepareStatement(sql_use);
+                        preparedStatement.executeUpdate();
+                    }
                 } else {
                     String sql_use = "USE " + NOMBRE_BBDD + ";";
                     preparedStatement = conexion.prepareStatement(sql_use);
                     preparedStatement.executeUpdate();
                 }
 
-                
             }
         } catch (SQLException e) {
             e.printStackTrace();

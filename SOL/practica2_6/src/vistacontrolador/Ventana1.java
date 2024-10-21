@@ -10,8 +10,8 @@ import static modelo.Usuario.hardcodeados;
 import static modelo.Usuario.recorrerUsers;
 
 /*
--Se conecta correctamente a la BD elegida
--Se muestran y gestionan errores de conexión con la BD
+-Se conecta correctamente a la BD elegida ---------hecho
+-Se muestran y gestionan errores de conexión con la BD --------------hecho
 -Se leen los datos de conexión de la BD de dicho fichero y no del código fuente
 -Como pongo el crear nueva cuenta en modo link?
  */
