@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import modelo.Usuario;
+import static modelo.Usuario.comprobarUserExistente;
 import static modelo.Usuario.hardcodeados;
 import static vistacontrolador.Ventana1.passwordToString;
 
@@ -258,13 +259,17 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El campo de usuario se encuentra vacio!", "Usuario Vacio", HEIGHT);
             return;
         }
-
+        if (!comprobarUserExistente(user)) {
+            JOptionPane.showMessageDialog(this, "El usuario que intentas agregar ya existe!", "Usuario Existente", HEIGHT);
+            return;
+        }
         if (agregarUsuarios(user)) {
             hardcodeados.add(user);
             JOptionPane.showMessageDialog(this, "Usuario añadido correctamente!", "BBDD", HEIGHT);
-            Ventana1 ventana1= new Ventana1();
+            Ventana1 ventana1 = new Ventana1();
             ventana1.setVisible(true);
-            
+            this.dispose();
+
         } else {
             JOptionPane.showMessageDialog(this, "El usuario no ha podido crearse en la base de datos!", "BBDD", HEIGHT);
         }
@@ -289,8 +294,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         texto_confirmarContraseña_ventanaNewUsers.setText("");
     }
 
-    public void comprobarUserExistente() {
-    }
+
     private void texto_user_ventanaNewUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_user_ventanaNewUsersActionPerformed
 
         // TODO add your handling code here:

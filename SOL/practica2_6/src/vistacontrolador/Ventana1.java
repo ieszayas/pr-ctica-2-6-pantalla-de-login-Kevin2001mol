@@ -164,9 +164,8 @@ public class Ventana1 extends javax.swing.JFrame {
         if (existeUsr()) {
             Ventana2 ventana2 = new Ventana2(nombre_usr);// primero me la instancio y luego la hago visible
             ventana2.setVisible(true);
+            this.dispose();
         }
-
-
     }//GEN-LAST:event_loguear_buttonActionPerformed
     private boolean existeUsr() {
         int indice = 0;
@@ -222,8 +221,7 @@ public class Ventana1 extends javax.swing.JFrame {
     private void nuevaCuenta_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaCuenta_buttonActionPerformed
         Ventana_new_Users ventana3 = new Ventana_new_Users();
         ventana3.setVisible(true);
-
-
+        this.dispose();
     }//GEN-LAST:event_nuevaCuenta_buttonActionPerformed
 
     public static void main(String args[]) {

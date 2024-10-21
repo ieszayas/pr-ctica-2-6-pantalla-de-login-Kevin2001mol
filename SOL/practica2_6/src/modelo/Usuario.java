@@ -73,6 +73,14 @@ public class Usuario {
         }
 
     }
+    public static boolean comprobarUserExistente(Usuario user) {
+        for (Usuario hardcodeado : hardcodeados) {
+            if (user.getUsuario().equals(hardcodeado.getUsuario())) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public String getCorreo() {
         return correo;

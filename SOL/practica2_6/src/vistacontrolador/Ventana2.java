@@ -85,7 +85,7 @@ public class Ventana2 extends javax.swing.JFrame {
 
         ventana1.setVisible(true);
 
-        this.dispose();//cerrar la ventana 2
+        this.dispose();
     }//GEN-LAST:event_cerrarSesion_buttonActionPerformed
 
     public static void main(String args[]) {
