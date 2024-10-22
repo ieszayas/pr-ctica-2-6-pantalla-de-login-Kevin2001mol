@@ -3,6 +3,9 @@ package vistacontrolador;
 import static BBDD.BBDD.cargarUsuarios;
 import static BBDD.BBDD.crearBaseDeDatos;
 import static BBDD.BBDD.crearTablaUsuarios;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import modelo.Usuario;
@@ -10,10 +13,8 @@ import static modelo.Usuario.hardcodeados;
 import static modelo.Usuario.recorrerUsers;
 
 /*
--Se conecta correctamente a la BD elegida ---------hecho
--Se muestran y gestionan errores de conexión con la BD --------------hecho
+
 -Se leen los datos de conexión de la BD de dicho fichero y no del código fuente
--Como pongo el crear nueva cuenta en modo link?
  */
 public class Ventana1 extends javax.swing.JFrame {
 
@@ -69,7 +70,20 @@ public class Ventana1 extends javax.swing.JFrame {
             }
         });
 
+        nuevaCuenta_button.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        nuevaCuenta_button.setForeground(new java.awt.Color(51, 102, 255));
         nuevaCuenta_button.setText("Crear una nueva cuenta");
+        nuevaCuenta_button.setBorderPainted(false);
+        nuevaCuenta_button.setContentAreaFilled(false);
+        nuevaCuenta_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nuevaCuenta_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                nuevaCuenta_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                nuevaCuenta_buttonMouseExited(evt);
+            }
+        });
         nuevaCuenta_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nuevaCuenta_buttonActionPerformed(evt);
@@ -223,10 +237,19 @@ public class Ventana1 extends javax.swing.JFrame {
     }//GEN-LAST:event_usuario_fieldActionPerformed
 
     private void nuevaCuenta_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaCuenta_buttonActionPerformed
+
         Ventana_new_Users ventana3 = new Ventana_new_Users();
         ventana3.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_nuevaCuenta_buttonActionPerformed
+
+    private void nuevaCuenta_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nuevaCuenta_buttonMouseEntered
+       nuevaCuenta_button.setText("<html><u>Crear una nueva cuenta</u></html>");
+    }//GEN-LAST:event_nuevaCuenta_buttonMouseEntered
+
+    private void nuevaCuenta_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nuevaCuenta_buttonMouseExited
+         nuevaCuenta_button.setText("Crear una nueva cuenta");
+    }//GEN-LAST:event_nuevaCuenta_buttonMouseExited
 
     public static void main(String args[]) {
         crearBaseDeDatos();
