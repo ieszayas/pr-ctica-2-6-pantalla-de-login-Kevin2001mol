@@ -213,7 +213,6 @@ public class BBDD {
             if (usuario.getNombre() != null) {
                 preparedStatement.setString(3, usuario.getNombre());
             } else {
-
                 preparedStatement.setNull(3, java.sql.Types.VARCHAR);//hay q poner eso para que detecte que es null 
             }
             if (usuario.getCorreo() != null) {

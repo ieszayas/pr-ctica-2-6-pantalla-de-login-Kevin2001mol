@@ -3,6 +3,7 @@ package vistacontrolador;
 import static BBDD.BBDD.agregarUsuarios;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
+import static java.awt.Color.RED;
 import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -113,6 +114,12 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         texto_contraseña_ventanaNewUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 texto_contraseña_ventanaNewUsersActionPerformed(evt);
+            }
+        });
+
+        texto_confirmarContraseña_ventanaNewUsers.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                texto_confirmarContraseña_ventanaNewUsersKeyReleased(evt);
             }
         });
 
@@ -327,6 +334,15 @@ public class Ventana_new_Users extends javax.swing.JFrame {
     private void texto_contraseña_ventanaNewUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_contraseña_ventanaNewUsersActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_texto_contraseña_ventanaNewUsersActionPerformed
+
+    private void texto_confirmarContraseña_ventanaNewUsersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texto_confirmarContraseña_ventanaNewUsersKeyReleased
+        String password = passwordToString(texto_contraseña_ventanaNewUsers);
+        String password_confirmar = passwordToString(texto_confirmarContraseña_ventanaNewUsers);
+        Border rojo = BorderFactory.createLineBorder(Color.RED, 2);
+        if (!(password_confirmar.equalsIgnoreCase(password))) {
+            texto_confirmarContraseña_ventanaNewUsers.setBorder(rojo);
+        }
+    }//GEN-LAST:event_texto_confirmarContraseña_ventanaNewUsersKeyReleased
 
     /**
      * @param args the command line arguments

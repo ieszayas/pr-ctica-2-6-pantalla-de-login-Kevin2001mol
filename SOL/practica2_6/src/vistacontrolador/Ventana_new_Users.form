@@ -270,6 +270,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="texto_confirmarContrase&#xf1;a_ventanaNewUsers">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="texto_confirmarContrase&#xf1;a_ventanaNewUsersKeyReleased"/>
+          </Events>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="fecha_nac_calendario">
         </Component>

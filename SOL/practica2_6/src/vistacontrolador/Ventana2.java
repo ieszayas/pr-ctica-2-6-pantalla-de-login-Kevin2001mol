@@ -16,6 +16,7 @@ public class Ventana2 extends javax.swing.JFrame {
         bienvenido_lbl = new javax.swing.JLabel();
         cerrarSesion_button = new javax.swing.JButton();
         logCorrectoLbl = new javax.swing.JLabel();
+        nuevacuenta_button_ventana2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -30,22 +31,31 @@ public class Ventana2 extends javax.swing.JFrame {
 
         logCorrectoLbl.setText("se ha logueado correctamente.");
 
+        nuevacuenta_button_ventana2.setText("Agregar nueva cuenta de usuario");
+        nuevacuenta_button_ventana2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevacuenta_button_ventana2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_2Layout = new javax.swing.GroupLayout(panel_2);
         panel_2.setLayout(panel_2Layout);
         panel_2Layout.setHorizontalGroup(
             panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_2Layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addGroup(panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cerrarSesion_button)
-                    .addGroup(panel_2Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(bienvenido_lbl)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_2Layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(logCorrectoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addContainerGap(111, Short.MAX_VALUE)
+                .addComponent(logCorrectoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
+            .addGroup(panel_2Layout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(bienvenido_lbl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panel_2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cerrarSesion_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nuevacuenta_button_ventana2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_2Layout.setVerticalGroup(
             panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -54,9 +64,11 @@ public class Ventana2 extends javax.swing.JFrame {
                 .addComponent(bienvenido_lbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(logCorrectoLbl)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nuevacuenta_button_ventana2)
+                .addGap(18, 18, 18)
                 .addComponent(cerrarSesion_button)
-                .addGap(50, 50, 50))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -88,6 +100,12 @@ public class Ventana2 extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cerrarSesion_buttonActionPerformed
 
+    private void nuevacuenta_button_ventana2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevacuenta_button_ventana2ActionPerformed
+        Ventana_new_Users ventana3 = new Ventana_new_Users();
+        ventana3.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_nuevacuenta_button_ventana2ActionPerformed
+
     public static void main(String args[]) {
         String nombreUsuario;
         if (args.length > 0) {
@@ -106,6 +124,7 @@ public class Ventana2 extends javax.swing.JFrame {
     private javax.swing.JLabel bienvenido_lbl;
     private javax.swing.JButton cerrarSesion_button;
     private javax.swing.JLabel logCorrectoLbl;
+    private javax.swing.JButton nuevacuenta_button_ventana2;
     private javax.swing.JPanel panel_2;
     // End of variables declaration//GEN-END:variables
 }
