@@ -20,7 +20,7 @@ public class BBDD {
     public static void crearBaseDeDatos() {
 
         String respuesta = "";
-        Connection conexion = getConexion();
+        Connection conexion = getConexion();//(Connection) new Conectar_BBDD();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
