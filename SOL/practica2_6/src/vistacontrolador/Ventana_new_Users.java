@@ -136,39 +136,25 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         PanelVentanaNewUsersLayout.setHorizontalGroup(
             PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
-                        .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(apellidos_lbl_ventanaNewUsers)
-                            .addComponent(Volver_button_ventanaNewUsers))
-                        .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelVentanaNewUsersLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(agregar_button_ventanaNewUsers)
-                                .addGap(42, 42, 42))
-                            .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
-                                .addGap(101, 101, 101)
-                                .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(texto_apellidos_ventanaNewUsers)
-                                    .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
-                                        .addComponent(fecha_nac_calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
-                        .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombre_lbl_ventanaNewUsers)
-                            .addComponent(correo_lbl_ventanaNewUsers)
-                            .addComponent(fecha_nac_lbl_ventanaNewUsers))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                        .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(texto_nombre_ventanaNewUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(texto_correo_ventanaNewUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
                 .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
                         .addGap(82, 82, 82)
-                        .addComponent(datosAdicionales_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelVentanaNewUsersLayout.createSequentialGroup()
+                                .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(apellidos_lbl_ventanaNewUsers)
+                                    .addComponent(Volver_button_ventanaNewUsers))
+                                .addGap(101, 101, 101)
+                                .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(fecha_nac_calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(texto_nombre_ventanaNewUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(texto_apellidos_ventanaNewUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                                        .addComponent(texto_correo_ventanaNewUsers))
+                                    .addComponent(agregar_button_ventanaNewUsers)))
+                            .addComponent(nombre_lbl_ventanaNewUsers, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(correo_lbl_ventanaNewUsers, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fecha_nac_lbl_ventanaNewUsers, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -187,7 +173,10 @@ public class Ventana_new_Users extends javax.swing.JFrame {
                                     .addComponent(texto_contraseña_ventanaNewUsers)
                                     .addComponent(texto_confirmarContraseña_ventanaNewUsers))))
                         .addGap(18, 18, 18)
-                        .addComponent(mostrar_contra_v3)))
+                        .addComponent(mostrar_contra_v3))
+                    .addGroup(PanelVentanaNewUsersLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(datosAdicionales_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         PanelVentanaNewUsersLayout.setVerticalGroup(
@@ -231,9 +220,9 @@ public class Ventana_new_Users extends javax.swing.JFrame {
                     .addComponent(fecha_nac_lbl_ventanaNewUsers)
                     .addComponent(fecha_nac_calendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
-                .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(agregar_button_ventanaNewUsers)
-                    .addComponent(Volver_button_ventanaNewUsers))
+                .addGroup(PanelVentanaNewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Volver_button_ventanaNewUsers)
+                    .addComponent(agregar_button_ventanaNewUsers))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
@@ -360,15 +349,15 @@ public class Ventana_new_Users extends javax.swing.JFrame {
     }//GEN-LAST:event_texto_confirmarContraseña_ventanaNewUsersKeyReleased
 
     private void mostrar_contra_v3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_contra_v3ActionPerformed
-          if (mostrar_contra_v3.isSelected()) {
+        if (mostrar_contra_v3.isSelected()) {
             texto_confirmarContraseña_ventanaNewUsers.setEchoChar((char) 0);
             texto_contraseña_ventanaNewUsers.setEchoChar((char) 0);
-            
+
         } else {
             texto_confirmarContraseña_ventanaNewUsers.setEchoChar('*');
             texto_contraseña_ventanaNewUsers.setEchoChar('*');
         }
-               
+
     }//GEN-LAST:event_mostrar_contra_v3ActionPerformed
 
     public static void main(String args[]) {

@@ -39,14 +39,14 @@ public class Ventana2 extends javax.swing.JFrame {
             }
         });
 
-        imagen_ventana2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/image-removebg-preview 1.png"))); // NOI18N
+        imagen_ventana2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Designer1.png"))); // NOI18N
 
         javax.swing.GroupLayout panel_2Layout = new javax.swing.GroupLayout(panel_2);
         panel_2.setLayout(panel_2Layout);
         panel_2Layout.setHorizontalGroup(
             panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_2Layout.createSequentialGroup()
-                .addContainerGap(111, Short.MAX_VALUE)
+                .addContainerGap(92, Short.MAX_VALUE)
                 .addComponent(logCorrectoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
             .addGroup(panel_2Layout.createSequentialGroup()
@@ -60,7 +60,7 @@ public class Ventana2 extends javax.swing.JFrame {
                 .addComponent(bienvenido_lbl)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panel_2Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
+                .addGap(161, 161, 161)
                 .addComponent(imagen_ventana2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -70,7 +70,7 @@ public class Ventana2 extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(bienvenido_lbl)
                 .addGap(18, 18, 18)
-                .addComponent(imagen_ventana2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, Short.MAX_VALUE)
+                .addComponent(imagen_ventana2, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logCorrectoLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

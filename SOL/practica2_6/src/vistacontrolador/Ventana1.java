@@ -3,6 +3,7 @@ package vistacontrolador;
 import static BBDD.BBDD.cargarUsuarios;
 import static BBDD.BBDD.crearBaseDeDatos;
 import static BBDD.BBDD.crearTablaUsuarios;
+import static BBDD.BBDD.quiereContinuar;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -180,7 +181,7 @@ public class Ventana1 extends javax.swing.JFrame {
         String nombre_usr = usuario_field.getText();
         String password = passwordToString(password_field);
         if (nombre_usr.equalsIgnoreCase("") || password.equalsIgnoreCase("")) {
-            vibrarVentana(this, 9,50);
+            vibrarVentana(this, 9, 50);
             JOptionPane.showMessageDialog(this, "Usuario o contraseña vacios!", "Campo/s Vacio/s", HEIGHT);
             return;
         }
@@ -192,12 +193,12 @@ public class Ventana1 extends javax.swing.JFrame {
     }//GEN-LAST:event_loguear_buttonActionPerformed
     public void vibrarVentana(JFrame frame, int intensidad, int duracion) {
         Point puntoOriginal = frame.getLocation();
- 
+
         for (int i = 0; i < duracion; i++) {
             int x = puntoOriginal.x + (int) (Math.random() * intensidad) - (intensidad / 2);
             int y = puntoOriginal.y + (int) (Math.random() * intensidad) - (intensidad / 2);
             frame.setLocation(x, y);
- 
+
             // Hacemos una pausa breve entre los movimientos
             try {
                 Thread.sleep(20); // Pausa de 20 ms entre cada movimiento
@@ -206,6 +207,7 @@ public class Ventana1 extends javax.swing.JFrame {
             }
         }
     }
+
     private boolean existeUsr() {
         int indice = 0;
         boolean existe = false;
@@ -221,12 +223,12 @@ public class Ventana1 extends javax.swing.JFrame {
             if (comprobarPassword(usuario_field.getText(), indice)) {
                 return true;
             } else {
-                vibrarVentana(this, 9,50);
+                vibrarVentana(this, 9, 50);
                 return false;
             }
 
         } else {
-            vibrarVentana(this, 9,50);
+            vibrarVentana(this, 9, 50);
             JOptionPane.showMessageDialog(null, "¡El usuario que ha introducido no existe!");
             resetearValores();
             return false;
@@ -265,17 +267,23 @@ public class Ventana1 extends javax.swing.JFrame {
     }//GEN-LAST:event_nuevaCuenta_buttonActionPerformed
 
     private void nuevaCuenta_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nuevaCuenta_buttonMouseEntered
-       nuevaCuenta_button.setText("<html><u>Crear una nueva cuenta</u></html>");
+        nuevaCuenta_button.setText("<html><u>Crear una nueva cuenta</u></html>");
     }//GEN-LAST:event_nuevaCuenta_buttonMouseEntered
 
     private void nuevaCuenta_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nuevaCuenta_buttonMouseExited
-         nuevaCuenta_button.setText("Crear una nueva cuenta");
+        nuevaCuenta_button.setText("Crear una nueva cuenta");
     }//GEN-LAST:event_nuevaCuenta_buttonMouseExited
 
     public static void main(String args[]) {
         crearBaseDeDatos();
-        crearTablaUsuarios();
-        hardcodeados = cargarUsuarios();
+        if (quiereContinuar) {
+            hardcodeados = cargarUsuarios();
+        } else {
+            crearTablaUsuarios();
+            hardcodeados = cargarUsuarios();
+
+        }
+
         //recorrerUsers(hardcodeados);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

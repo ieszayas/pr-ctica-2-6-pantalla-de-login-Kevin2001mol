@@ -15,6 +15,7 @@ public class BBDD {
 
     private static final String NOMBRE_BBDD = "Gestion_Usuarios";
     public static Scanner sc = new Scanner(System.in);
+    public static boolean quiereContinuar = false;
 
     public static void crearBaseDeDatos() {
 
@@ -33,7 +34,8 @@ public class BBDD {
                 existeBbdd = resultSet.next();
 
                 if (existeBbdd) {
-                    if (!quiereContinuarConBaseDeDatos()) { 
+                    quiereContinuar = quiereContinuarConBaseDeDatos();
+                    if (!quiereContinuar) {
                         System.out.println("Eliminando la base de datos...");
                         String sqlDelete = "DROP DATABASE IF EXISTS " + NOMBRE_BBDD;
                         preparedStatement = conexion.prepareStatement(sqlDelete);
@@ -51,7 +53,6 @@ public class BBDD {
                     preparedStatement.executeUpdate();
                 }
 
-                
                 String sqlUse = "USE " + NOMBRE_BBDD;
                 preparedStatement = conexion.prepareStatement(sqlUse);
                 preparedStatement.executeUpdate();
@@ -80,7 +81,12 @@ public class BBDD {
         System.out.println("Quieres continuar con la base de datos ya cargada? (si/no)");
         Scanner sc = new Scanner(System.in);
         String respuesta = sc.nextLine();
-        return respuesta.equalsIgnoreCase("sí");
+        if (respuesta.equalsIgnoreCase("si")) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     public static void crearTablaUsuarios() {
