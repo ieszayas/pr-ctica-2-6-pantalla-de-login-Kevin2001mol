@@ -17,6 +17,7 @@ public class Ventana2 extends javax.swing.JFrame {
         cerrarSesion_button = new javax.swing.JButton();
         logCorrectoLbl = new javax.swing.JLabel();
         nuevacuenta_button_ventana2 = new javax.swing.JButton();
+        imagen_ventana2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,6 +39,8 @@ public class Ventana2 extends javax.swing.JFrame {
             }
         });
 
+        imagen_ventana2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/image-removebg-preview 1.png"))); // NOI18N
+
         javax.swing.GroupLayout panel_2Layout = new javax.swing.GroupLayout(panel_2);
         panel_2.setLayout(panel_2Layout);
         panel_2Layout.setHorizontalGroup(
@@ -47,14 +50,18 @@ public class Ventana2 extends javax.swing.JFrame {
                 .addComponent(logCorrectoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
             .addGroup(panel_2Layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(bienvenido_lbl)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panel_2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cerrarSesion_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nuevacuenta_button_ventana2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panel_2Layout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addComponent(bienvenido_lbl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panel_2Layout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(imagen_ventana2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_2Layout.setVerticalGroup(
@@ -62,7 +69,9 @@ public class Ventana2 extends javax.swing.JFrame {
             .addGroup(panel_2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(bienvenido_lbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(imagen_ventana2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logCorrectoLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nuevacuenta_button_ventana2)
@@ -123,6 +132,7 @@ public class Ventana2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bienvenido_lbl;
     private javax.swing.JButton cerrarSesion_button;
+    private javax.swing.JLabel imagen_ventana2;
     private javax.swing.JLabel logCorrectoLbl;
     private javax.swing.JButton nuevacuenta_button_ventana2;
     private javax.swing.JPanel panel_2;
