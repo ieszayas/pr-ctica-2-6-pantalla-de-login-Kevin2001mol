@@ -226,7 +226,7 @@ public class BBDD {
                 preparedStatement.setNull(4, java.sql.Types.VARCHAR);
             }
             if (usuario.getFecha_nac() != null) {
-                preparedStatement.setDate(6, new java.sql.Date(usuario.getFecha_nac().getTime()));//getTime te convierte el valor a long que es lo que lee la conversion en la BBDD
+                preparedStatement.setDate(6, new java.sql.Date(usuario.getFecha_nac().getTime())); //getTime te convierte el valor a long que es lo que lee la conversion en la BBDD
             } else {
                 preparedStatement.setNull(6, java.sql.Types.DATE);
             }
