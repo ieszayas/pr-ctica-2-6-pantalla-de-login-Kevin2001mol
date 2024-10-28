@@ -17,7 +17,6 @@ public class Conectar_BBDD {
 //    private Conectar_BBDD() {
 //    }
     public static Connection getConexion() {
-
         if (conexion == null) {
             try {
                 String url;
