@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Usuario {
+
     //public static ArrayList<Usuario>usuarios= new ArrayList();
     private String usuario;
     private String nombre;
@@ -16,8 +17,8 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String usuario,String correo, String nombre, String apellidos, String password, Date fecha_nac) {
-        this.usuario=usuario;
+    public Usuario(String usuario, String correo, String nombre, String apellidos, String password, Date fecha_nac) {
+        this.usuario = usuario;
         this.correo = correo;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -48,7 +49,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return  "Usiuario: "+usuario + "\t"+ " Nombre: " + nombre + "\t"+ " Apellidos: " + apellidos + "\t"+ " Fecha de Nacimiento: " + fecha_nac;
+        return "Usiuario: " + usuario + "\t" + " Nombre: " + nombre + "\t" + " Apellidos: " + apellidos + "\t" + " Fecha de Nacimiento: " + fecha_nac;
     }
 
 //    public static ArrayList<Usuario> crear10Users() {
@@ -66,13 +67,13 @@ public class Usuario {
 //
 //        return hardcodeados;
 //    }
-
     public static void recorrerUsers(ArrayList<Usuario> usuarios) {
         for (Usuario usuario : usuarios) {
             System.out.println(usuario.toString());
         }
 
     }
+
     public static boolean comprobarUserExistente(Usuario user) {
         for (Usuario hardcodeado : hardcodeados) {
             if (user.getUsuario().equals(hardcodeado.getUsuario())) {
@@ -80,6 +81,20 @@ public class Usuario {
             }
         }
         return true;
+    }
+
+    public static int comprobarIndiceUser(String nombre) {
+        int indice = 0;
+        for (int i = 0; i < hardcodeados.size(); i++) {
+
+            if (hardcodeados.get(i).getUsuario().equalsIgnoreCase(nombre)) {
+                return indice;
+                
+            } else {
+                indice++;
+            }
+        }
+        return -1;
     }
 
     public String getCorreo() {
@@ -113,6 +128,5 @@ public class Usuario {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    
-    
+
 }

@@ -259,4 +259,35 @@ public class BBDD {
 
     }
 
+    public static boolean actualizarContraseña(Usuario usuario, String contraseña) {
+        Connection conexion = getConexion();
+        PreparedStatement preparedStatement = null;
+        try {
+
+            String sql_update = "UPDATE usuarios SET password = ? WHERE usuario = ?";
+            preparedStatement = conexion.prepareStatement(sql_update);
+            preparedStatement.setString(1, contraseña);
+            preparedStatement.setString(2, usuario.getUsuario());
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("Usuario actualizado exitosamente en la base de datos.");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error al actualizar usuario en la base de datos.");
+            return false;
+        } finally {
+            // Cerrar recursos
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 }

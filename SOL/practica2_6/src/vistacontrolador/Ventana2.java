@@ -1,10 +1,15 @@
 package vistacontrolador;
 
+import static modelo.Usuario.comprobarIndiceUser;
+import static modelo.Usuario.hardcodeados;
+
 public class Ventana2 extends javax.swing.JFrame {
+
+    public static String nombre_Usuario;
 
     public Ventana2(String nombre_usr) {
         initComponents();
-
+        nombre_Usuario = nombre_usr;
         logCorrectoLbl.setText(nombre_usr + " " + logCorrectoLbl.getText());
     }
 
@@ -18,6 +23,7 @@ public class Ventana2 extends javax.swing.JFrame {
         logCorrectoLbl = new javax.swing.JLabel();
         nuevacuenta_button_ventana2 = new javax.swing.JButton();
         imagen_ventana2 = new javax.swing.JLabel();
+        modificarPasswd_butonV1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,6 +47,13 @@ public class Ventana2 extends javax.swing.JFrame {
 
         imagen_ventana2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Designer1.png"))); // NOI18N
 
+        modificarPasswd_butonV1.setText("Modificar contraseña");
+        modificarPasswd_butonV1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarPasswd_butonV1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_2Layout = new javax.swing.GroupLayout(panel_2);
         panel_2.setLayout(panel_2Layout);
         panel_2Layout.setHorizontalGroup(
@@ -50,18 +63,19 @@ public class Ventana2 extends javax.swing.JFrame {
                 .addComponent(logCorrectoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
             .addGroup(panel_2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cerrarSesion_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nuevacuenta_button_ventana2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panel_2Layout.createSequentialGroup()
                 .addGap(148, 148, 148)
                 .addComponent(bienvenido_lbl)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panel_2Layout.createSequentialGroup()
                 .addGap(161, 161, 161)
                 .addComponent(imagen_ventana2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panel_2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cerrarSesion_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nuevacuenta_button_ventana2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                    .addComponent(modificarPasswd_butonV1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_2Layout.setVerticalGroup(
@@ -77,7 +91,9 @@ public class Ventana2 extends javax.swing.JFrame {
                 .addComponent(nuevacuenta_button_ventana2)
                 .addGap(18, 18, 18)
                 .addComponent(cerrarSesion_button)
-                .addGap(43, 43, 43))
+                .addGap(14, 14, 14)
+                .addComponent(modificarPasswd_butonV1)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,6 +131,12 @@ public class Ventana2 extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_nuevacuenta_button_ventana2ActionPerformed
 
+    private void modificarPasswd_butonV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPasswd_butonV1ActionPerformed
+        Ventana_Mod_Password ventanaPasswd = new Ventana_Mod_Password(hardcodeados.get(comprobarIndiceUser(nombre_Usuario)));
+        ventanaPasswd.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_modificarPasswd_butonV1ActionPerformed
+
     public static void main(String args[]) {
         String nombreUsuario;
         if (args.length > 0) {
@@ -134,6 +156,7 @@ public class Ventana2 extends javax.swing.JFrame {
     private javax.swing.JButton cerrarSesion_button;
     private javax.swing.JLabel imagen_ventana2;
     private javax.swing.JLabel logCorrectoLbl;
+    private javax.swing.JButton modificarPasswd_butonV1;
     private javax.swing.JButton nuevacuenta_button_ventana2;
     private javax.swing.JPanel panel_2;
     // End of variables declaration//GEN-END:variables
