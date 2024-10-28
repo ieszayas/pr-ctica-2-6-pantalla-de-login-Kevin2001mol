@@ -11,9 +11,7 @@ import java.util.logging.Logger;
 
 public class Conectar_BBDD {
 
-    public String url;
-    public String usuario;
-    public String passswd;
+   
     private static Connection conexion = null;
 
 //    private Conectar_BBDD() {
@@ -51,16 +49,22 @@ public class Conectar_BBDD {
         cargarPropiedades();
     }
 
-    public void cargarPropiedades() {
-        Properties propiedades = new Properties();
-        try (FileInputStream fis = new FileInputStream("config.properties")) {
-            propiedades.load(fis);
-            url = propiedades.getProperty("db.url");
-            usuario = propiedades.getProperty("db.usuario");
-            passswd = propiedades.getProperty("db.passswd");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static Connection cargarPropiedades() {
+        if (conexion == null) {
+            Properties propiedades = new Properties();
+            try (FileInputStream fis = new FileInputStream("./AccesoBBDD/config.properties")) {
+                propiedades.load(fis);
+                String  url = propiedades.getProperty("db.url");
+                String usuario = propiedades.getProperty("db.usuario");
+                String passswd = propiedades.getProperty("db.passswd");
+                return conexion = DriverManager.getConnection(url, usuario, passswd);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException ex) {
+                Logger.getLogger(Conectar_BBDD.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
+        }
+         return null;
     }
 }

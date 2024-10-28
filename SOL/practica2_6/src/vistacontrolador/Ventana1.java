@@ -15,10 +15,6 @@ import modelo.Usuario;
 import static modelo.Usuario.hardcodeados;
 import static modelo.Usuario.recorrerUsers;
 
-/*
-
--Se leen los datos de conexión de la BD de dicho fichero y no del código fuente
- */
 public class Ventana1 extends javax.swing.JFrame {
 
     public Ventana1() {

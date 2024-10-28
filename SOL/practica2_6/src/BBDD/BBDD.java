@@ -1,6 +1,6 @@
 package BBDD;
 
-import static BBDD.Conectar_BBDD.getConexion;
+import static BBDD.Conectar_BBDD.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +20,7 @@ public class BBDD {
     public static void crearBaseDeDatos() {
 
         String respuesta = "";
-        Connection conexion = getConexion();//(Connection) new Conectar_BBDD();
+        Connection conexion = cargarPropiedades();//getConexion();//(Connection) new Conectar_BBDD();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
@@ -90,7 +90,7 @@ public class BBDD {
     }
 
     public static void crearTablaUsuarios() {
-        Connection conexion = getConexion();
+        Connection conexion = cargarPropiedades();
         Statement statement = null;
 
         try {
@@ -158,7 +158,7 @@ public class BBDD {
     }
 
     public static ArrayList<Usuario> cargarUsuarios() {
-        Connection conexion = getConexion();  //lo usamos siempre para conectar con la bbdd
+        Connection conexion = cargarPropiedades();  //lo usamos siempre para conectar con la bbdd
         ArrayList<Usuario> usuarios = new ArrayList();
 
         Statement statement = null;
@@ -206,7 +206,7 @@ public class BBDD {
     }
 
     public static boolean agregarUsuarios(Usuario usuario) {
-        Connection conexion = getConexion();
+        Connection conexion = cargarPropiedades();
         PreparedStatement preparedStatement = null;
 
         try {
@@ -260,7 +260,7 @@ public class BBDD {
     }
 
     public static boolean actualizarContraseña(Usuario usuario, String contraseña) {
-        Connection conexion = getConexion();
+        Connection conexion = cargarPropiedades();
         PreparedStatement preparedStatement = null;
         try {
 

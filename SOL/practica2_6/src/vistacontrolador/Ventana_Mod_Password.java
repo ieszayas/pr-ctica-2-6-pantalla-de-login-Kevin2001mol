@@ -55,18 +55,18 @@ public class Ventana_Mod_Password extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
+                .addContainerGap(82, Short.MAX_VALUE)
                 .addComponent(texto_NewPasswd)
                 .addGap(33, 33, 33)
                 .addComponent(newPasswd_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                .addGap(95, 95, 95))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
+                        .addGap(118, 118, 118)
                         .addComponent(botonModPasswd))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
+                        .addGap(148, 148, 148)
                         .addComponent(volverAV2_buton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -77,11 +77,11 @@ public class Ventana_Mod_Password extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newPasswd_Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(texto_NewPasswd))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(botonModPasswd)
                 .addGap(18, 18, 18)
                 .addComponent(volverAV2_buton)
-                .addGap(8, 8, 8))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,8 +116,6 @@ public class Ventana_Mod_Password extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "La contraseña no puede ser igual a la que ya tenias.");
             return;
         }
-        //llamar a metodo de la base de datos cambiar contraseña y luego hacer setter en memoria hardcodeados
-        
         if (actualizarContraseña(user, newPasswd)) {
             hardcodeados.get(comprobarIndiceUser(user.getUsuario())).setPassword(newPasswd);//cambio la contraseña en memoria
             JOptionPane.showMessageDialog(this, "La contraseña ha sido cambiada correctamente.");

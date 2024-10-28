@@ -256,31 +256,31 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         String usuario = texto_user_ventanaNewUsers.getText();
         Usuario user = obtenervalores();
         if (password.equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(this, "El campo de contraseña se encuentra vacio!", "Contraseña Vacia", HEIGHT);
+            JOptionPane.showMessageDialog(this, "El campo de contraseña se encuentra vacio!", "Contraseña Vacia", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (!(password.equalsIgnoreCase(password_confirm))) {//si las contraseñas no coinciden
-            JOptionPane.showMessageDialog(this, "La contraseña no se corresponde con la confirmacion de la contraseña!", "Confirmacion de contraseña erroena ", HEIGHT);
+            JOptionPane.showMessageDialog(this, "La contraseña no se corresponde con la confirmacion de la contraseña!", "Confirmacion de contraseña erroena ", JOptionPane.ERROR_MESSAGE);
             resetearValoresContraseña();
             return;
         }
         if (usuario.equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(this, "El campo de usuario se encuentra vacio!", "Usuario Vacio", HEIGHT);
+            JOptionPane.showMessageDialog(this, "El campo de usuario se encuentra vacio!", "Usuario Vacio", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (!comprobarUserExistente(user)) {
-            JOptionPane.showMessageDialog(this, "El usuario que intentas agregar ya existe!", "Usuario Existente", HEIGHT);
+            JOptionPane.showMessageDialog(this, "El usuario que intentas agregar ya existe!", "Usuario Existente", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (agregarUsuarios(user)) {
             hardcodeados.add(user);
-            JOptionPane.showMessageDialog(this, "Usuario añadido correctamente!", "BBDD", HEIGHT);
+            JOptionPane.showMessageDialog(this, "Usuario añadido correctamente!", "BBDD", JOptionPane.INFORMATION_MESSAGE);
             Ventana1 ventana1 = new Ventana1();
             ventana1.setVisible(true);
             this.dispose();
 
         } else {
-            JOptionPane.showMessageDialog(this, "El usuario no ha podido crearse en la base de datos!", "BBDD", HEIGHT);
+            JOptionPane.showMessageDialog(this, "El usuario no ha podido crearse en la base de datos!", "BBDD", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_agregar_button_ventanaNewUsersActionPerformed
@@ -302,11 +302,8 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         texto_contraseña_ventanaNewUsers.setText("");
         texto_confirmarContraseña_ventanaNewUsers.setText("");
     }
-
-
     private void texto_user_ventanaNewUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_user_ventanaNewUsersActionPerformed
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_texto_user_ventanaNewUsersActionPerformed
 
     private void texto_correo_ventanaNewUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_correo_ventanaNewUsersActionPerformed
@@ -334,12 +331,13 @@ public class Ventana_new_Users extends javax.swing.JFrame {
     }//GEN-LAST:event_texto_correo_ventanaNewUsersKeyReleased
 
     private void texto_contraseña_ventanaNewUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_contraseña_ventanaNewUsersActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_texto_contraseña_ventanaNewUsersActionPerformed
 
     private void texto_confirmarContraseña_ventanaNewUsersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texto_confirmarContraseña_ventanaNewUsersKeyReleased
         String password = passwordToString(texto_contraseña_ventanaNewUsers);
         String password_confirmar = passwordToString(texto_confirmarContraseña_ventanaNewUsers);
+        
         Border rojo = BorderFactory.createLineBorder(Color.RED, 2);
         if (!(password_confirmar.equalsIgnoreCase(password))) {
             texto_confirmarContraseña_ventanaNewUsers.setBorder(rojo);
@@ -378,9 +376,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Ventana_new_Users.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
+      
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Ventana_new_Users().setVisible(true);
