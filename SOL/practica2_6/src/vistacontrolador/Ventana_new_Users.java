@@ -394,12 +394,13 @@ public class Ventana_new_Users extends javax.swing.JFrame {
     private void texto_correo_ventanaNewUsersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texto_correo_ventanaNewUsersKeyReleased
         String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
         if (!(texto_correo_ventanaNewUsers.getText().matches(regex))) {
-
             texto_correo_ventanaNewUsers.setBorder(bordeRojo);
         }
         if ((texto_correo_ventanaNewUsers.getText().matches(regex))) {
-
             texto_correo_ventanaNewUsers.setBorder(bordeVerde);
+        }
+        if (texto_correo_ventanaNewUsers.getText().equalsIgnoreCase("")) {
+            texto_correo_ventanaNewUsers.setBorder(bordeNormal);
         }
     }//GEN-LAST:event_texto_correo_ventanaNewUsersKeyReleased
 
