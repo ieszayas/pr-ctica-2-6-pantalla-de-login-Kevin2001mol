@@ -27,6 +27,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
 
         initComponents();
         hacerVisibleNewUsers(false);
+        fecha_nac_calendario.getDateEditor().setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -320,6 +321,9 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Los apellidos no tienen un formato adecuado!", "Apellidos erroneos ", JOptionPane.ERROR_MESSAGE);
             return;
         }
+
+       
+        
         if (user.getFecha_nac() != null) {
             if (!esFechaFutura(fecha_nac_calendario)) {
                 if (!esMayorDeEdad(user.getFecha_nac())) {
