@@ -39,7 +39,7 @@ public class Conectar_BBDD {
             }
 
         } catch (SQLException ex) {
-            System.out.println("No se ha podidoncerrarla conexion.");
+            System.out.println("No se ha podido cerrar la conexion.");
         }
 
     }
@@ -58,6 +58,26 @@ public class Conectar_BBDD {
                 String passswd = propiedades.getProperty("db.passswd");
                 return conexion = DriverManager.getConnection(url, usuario, passswd);
             } catch (IOException e) {
+                System.out.println("Error al leer el archivo de configuración.");
+                e.printStackTrace();
+            } catch (SQLException ex) {
+                Logger.getLogger(Conectar_BBDD.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+         return null;
+    }
+        public static Connection cargarPropiedadesBBDD() {
+        if (conexion == null) {
+            Properties propiedades = new Properties();
+            try (FileInputStream fis = new FileInputStream("./AccesoBBDD/configBBDD.properties")) {
+                propiedades.load(fis);
+                String  url = propiedades.getProperty("db.url");
+                String usuario = propiedades.getProperty("db.usuario");
+                String passswd = propiedades.getProperty("db.passswd");
+                return conexion = DriverManager.getConnection(url, usuario, passswd);
+            } catch (IOException e) {
+                System.out.println("Error al leer el archivo de configuración.");
                 e.printStackTrace();
             } catch (SQLException ex) {
                 Logger.getLogger(Conectar_BBDD.class.getName()).log(Level.SEVERE, null, ex);

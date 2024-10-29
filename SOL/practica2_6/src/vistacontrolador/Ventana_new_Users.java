@@ -16,7 +16,9 @@ import static modelo.Usuario.hardcodeados;
 import static vistacontrolador.Ventana1.passwordToString;
 
 public class Ventana_new_Users extends javax.swing.JFrame {
-
+    private Border bordeVerde = BorderFactory.createLineBorder(Color.GREEN, 1);
+    private Border bordeRojo = BorderFactory.createLineBorder(Color.RED, 2);
+    private Border bordeNormal = BorderFactory.createLineBorder(Color.GRAY, 1);
     public Ventana_new_Users() {
         initComponents();
     }
@@ -105,10 +107,20 @@ public class Ventana_new_Users extends javax.swing.JFrame {
                 texto_nombre_ventanaNewUsersActionPerformed(evt);
             }
         });
+        texto_nombre_ventanaNewUsers.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                texto_nombre_ventanaNewUsersKeyReleased(evt);
+            }
+        });
 
         texto_apellidos_ventanaNewUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 texto_apellidos_ventanaNewUsersActionPerformed(evt);
+            }
+        });
+        texto_apellidos_ventanaNewUsers.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                texto_apellidos_ventanaNewUsersKeyReleased(evt);
             }
         });
 
@@ -255,6 +267,10 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         String password_confirm = passwordToString(texto_confirmarContraseña_ventanaNewUsers);
         String usuario = texto_user_ventanaNewUsers.getText();
         Usuario user = obtenervalores();
+        if (usuario.equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(this, "El campo de usuario se encuentra vacio!", "Usuario Vacio", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         if (password.equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(this, "El campo de contraseña se encuentra vacio!", "Contraseña Vacia", JOptionPane.ERROR_MESSAGE);
             return;
@@ -264,10 +280,11 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             resetearValoresContraseña();
             return;
         }
-        if (usuario.equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(this, "El campo de usuario se encuentra vacio!", "Usuario Vacio", JOptionPane.ERROR_MESSAGE);
-            return;
+        if (texto_correo_ventanaNewUsers.getBorder()==bordeRojo) {
+           JOptionPane.showMessageDialog(this, "El correo no tiene un formato adecuado!", "Correo erroneo ", JOptionPane.ERROR_MESSAGE);
+           return;
         }
+        
         if (!comprobarUserExistente(user)) {
             JOptionPane.showMessageDialog(this, "El usuario que intentas agregar ya existe!", "Usuario Existente", JOptionPane.ERROR_MESSAGE);
             return;
@@ -315,18 +332,18 @@ public class Ventana_new_Users extends javax.swing.JFrame {
     }//GEN-LAST:event_texto_nombre_ventanaNewUsersActionPerformed
 
     private void texto_apellidos_ventanaNewUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_apellidos_ventanaNewUsersActionPerformed
-        // TODO add your handling code here:
+           
     }//GEN-LAST:event_texto_apellidos_ventanaNewUsersActionPerformed
 
     private void texto_correo_ventanaNewUsersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texto_correo_ventanaNewUsersKeyReleased
         String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
         if (!(texto_correo_ventanaNewUsers.getText().matches(regex))) {
-            Border bordeRojo = BorderFactory.createLineBorder(Color.RED, 2);
+            
             texto_correo_ventanaNewUsers.setBorder(bordeRojo);
         }
         if ((texto_correo_ventanaNewUsers.getText().matches(regex))) {
-            Border bordeNegro = BorderFactory.createLineBorder(Color.GREEN, 0);
-            texto_correo_ventanaNewUsers.setBorder(bordeNegro);
+            
+            texto_correo_ventanaNewUsers.setBorder(bordeVerde);
         }
     }//GEN-LAST:event_texto_correo_ventanaNewUsersKeyReleased
 
@@ -357,6 +374,28 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_mostrar_contra_v3ActionPerformed
+
+    private void texto_nombre_ventanaNewUsersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texto_nombre_ventanaNewUsersKeyReleased
+      if (texto_nombre_ventanaNewUsers.getText().matches("\\d*")) {
+            // Si el texto es numérico, cambia al borde normal
+            
+            texto_nombre_ventanaNewUsers.setBorder(bordeRojo);
+        } else {
+            // Si el texto contiene caracteres no numéricos, cambia al borde rojo
+            texto_nombre_ventanaNewUsers.setBorder(bordeNormal);
+        }   
+    }//GEN-LAST:event_texto_nombre_ventanaNewUsersKeyReleased
+
+    private void texto_apellidos_ventanaNewUsersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texto_apellidos_ventanaNewUsersKeyReleased
+        if (texto_apellidos_ventanaNewUsers.getText().matches("\\d*")) {
+            // Si el texto es numérico, cambia al borde normal
+            
+            texto_apellidos_ventanaNewUsers.setBorder(bordeRojo);
+        } else {
+            // Si el texto contiene caracteres no numéricos, cambia al borde rojo
+            texto_apellidos_ventanaNewUsers.setBorder(bordeNormal);
+        } 
+    }//GEN-LAST:event_texto_apellidos_ventanaNewUsersKeyReleased
 
     public static void main(String args[]) {
 

@@ -246,11 +246,13 @@
         <Component class="javax.swing.JTextField" name="texto_nombre_ventanaNewUsers">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="texto_nombre_ventanaNewUsersActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="texto_nombre_ventanaNewUsersKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="texto_apellidos_ventanaNewUsers">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="texto_apellidos_ventanaNewUsersActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="texto_apellidos_ventanaNewUsersKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="texto_contrase&#xf1;a_ventanaNewUsers">

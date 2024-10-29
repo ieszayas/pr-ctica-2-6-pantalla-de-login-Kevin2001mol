@@ -90,7 +90,7 @@ public class BBDD {
     }
 
     public static void crearTablaUsuarios() {
-        Connection conexion = cargarPropiedades();
+        Connection conexion = cargarPropiedadesBBDD();//a partir de aqui kaboom
         Statement statement = null;
 
         try {
@@ -158,7 +158,7 @@ public class BBDD {
     }
 
     public static ArrayList<Usuario> cargarUsuarios() {
-        Connection conexion = cargarPropiedades();  //lo usamos siempre para conectar con la bbdd
+        Connection conexion = cargarPropiedadesBBDD();  //lo usamos siempre para conectar con la bbdd
         ArrayList<Usuario> usuarios = new ArrayList();
 
         Statement statement = null;
@@ -206,7 +206,7 @@ public class BBDD {
     }
 
     public static boolean agregarUsuarios(Usuario usuario) {
-        Connection conexion = cargarPropiedades();
+        Connection conexion = cargarPropiedadesBBDD();
         PreparedStatement preparedStatement = null;
 
         try {
@@ -260,7 +260,7 @@ public class BBDD {
     }
 
     public static boolean actualizarContraseña(Usuario usuario, String contraseña) {
-        Connection conexion = cargarPropiedades();
+        Connection conexion = cargarPropiedadesBBDD();
         PreparedStatement preparedStatement = null;
         try {
 
