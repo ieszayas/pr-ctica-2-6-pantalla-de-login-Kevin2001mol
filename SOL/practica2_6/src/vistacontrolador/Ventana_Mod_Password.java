@@ -165,7 +165,7 @@ public class Ventana_Mod_Password extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "La contraseña no puede ser igual a la que ya tenias.");
             return;
         }
-        if (validarContrasena(newPasswd)) {
+        if (!validarContrasena(newPasswd)) {
             JOptionPane.showMessageDialog(this, "La contraseña no cumple con los requisitos esperados!", "Contraseña débil", JOptionPane.ERROR_MESSAGE);
             return;
         }

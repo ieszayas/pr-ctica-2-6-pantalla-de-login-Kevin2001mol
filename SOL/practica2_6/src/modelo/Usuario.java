@@ -99,14 +99,6 @@ public class Usuario {
     }
 
     public static boolean esMayorDeEdad(Date fecha_nac_calendario) {
-        //Date fechaNacimiento = fecha_nac_calendario.getDate();
-
-        if (fecha_nac_calendario == null) {
-            // Si no se ha seleccionado una fecha, retornamos false o mostramos un mensaje
-            System.out.println("No se ha seleccionado una fecha.");
-            return false;
-        }
-
         // Obtener la fecha actual
         Calendar fechaActual = Calendar.getInstance();
 
@@ -128,14 +120,14 @@ public class Usuario {
         return edad >= 18;
     }
 
-   public static boolean validarContrasena(String contrasena) {
-    // Expresión regular para validar los requisitos
-    // Asegura al menos una mayúscula, un número, un carácter especial (cualquier caracter no alfanumérico), y longitud mínima de 8
-    String regex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{8,}$";
-    
-    // Comprueba que la contraseña no sea nula y cumpla con la expresión regular
-    return contrasena != null && contrasena.matches(regex);
-}
+    public static boolean validarContrasena(String contrasena) {
+        // Expresión regular para validar los requisitos
+        // Asegura al menos una mayúscula, un número, un carácter especial (cualquier caracter no alfanumérico), y longitud mínima de 8
+        String regex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{8,}$";
+
+        // Comprueba que la contraseña no sea nula y cumpla con la expresión regular
+        return contrasena != null && contrasena.matches(regex);
+    }
 
     public String getCorreo() {
         return correo;

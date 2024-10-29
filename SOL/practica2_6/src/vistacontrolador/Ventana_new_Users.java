@@ -24,7 +24,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
     public static Border bordeNormal = BorderFactory.createLineBorder(Color.GRAY, 0);
 
     public Ventana_new_Users() {
-        
+
         initComponents();
         hacerVisibleNewUsers(false);
     }
@@ -303,7 +303,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             resetearValoresContraseña();
             return;
         }
-        if (validarContrasena(password)) {
+        if (!validarContrasena(password)) {
             JOptionPane.showMessageDialog(this, "La contraseña no cumple con los requisitos esperados!", "Contraseña débil", JOptionPane.ERROR_MESSAGE);
             resetearValoresContraseña();
             return;
@@ -320,14 +320,17 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Los apellidos no tienen un formato adecuado!", "Apellidos erroneos ", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (!esFechaFutura(fecha_nac_calendario)) {
-            if (!esMayorDeEdad(user.getFecha_nac())) {
-                JOptionPane.showMessageDialog(this, "Los menores de edad no pueden suscribirse!", "Minoría de edad", JOptionPane.ERROR_MESSAGE);
+        if (user.getFecha_nac() != null) {
+            if (!esFechaFutura(fecha_nac_calendario)) {
+                if (!esMayorDeEdad(user.getFecha_nac())) {
+                    JOptionPane.showMessageDialog(this, "Los menores de edad no pueden suscribirse!", "Minoría de edad", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "No puedes introducir fechas que estan por pasar!", "Fecha erronea", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "No puedes introducir fechas que estan por pasar!", "Fecha erronea", JOptionPane.ERROR_MESSAGE);
-            return;
+
         }
 
         if (!comprobarUserExistente(user)) {
@@ -362,15 +365,8 @@ public class Ventana_new_Users extends javax.swing.JFrame {
 
     public boolean esFechaFutura(JDateChooser fechaCalendario) {
         Date fechaSeleccionada = fechaCalendario.getDate();
-
-        if (fechaSeleccionada == null) {
-            System.out.println("No se ha seleccionado una fecha.");
-            return false;
-        }
-
         // Obtener la fecha actual
         Date fechaActual = new Date();
-
         // si la fecha que me mete es del futuro le mete un true y si no, es false
         return fechaSeleccionada.after(fechaActual);
     }
