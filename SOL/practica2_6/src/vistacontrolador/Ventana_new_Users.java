@@ -20,13 +20,13 @@ import static vistacontrolador.Ventana1.passwordToString;
 public class Ventana_new_Users extends javax.swing.JFrame {
 
     private Border bordeVerde = BorderFactory.createLineBorder(Color.GREEN, 1);
-    private Border bordeRojo = BorderFactory.createLineBorder(Color.RED, 2);
-    private Border bordeNormal = BorderFactory.createLineBorder(Color.GRAY, 0);
+    public static Border bordeRojo = BorderFactory.createLineBorder(Color.RED, 2);
+    public static Border bordeNormal = BorderFactory.createLineBorder(Color.GRAY, 0);
 
     public Ventana_new_Users() {
         
         initComponents();
-        hacerVisible(false);
+        hacerVisibleNewUsers(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -467,19 +467,19 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         String passwd = passwordToString(texto_contraseña_ventanaNewUsers);
         if (passwd.equalsIgnoreCase("")) {
             texto_contraseña_ventanaNewUsers.setBorder(bordeNormal);
-            hacerVisible(false);
+            hacerVisibleNewUsers(false);
         } else {
             if (!validarContrasena(passwd)) {
                 texto_contraseña_ventanaNewUsers.setBorder(bordeRojo);//avisar de que la contra tiene requisitos
-                hacerVisible(true);
+                hacerVisibleNewUsers(true);
             } else {
                 texto_contraseña_ventanaNewUsers.setBorder(bordeNormal);
-                hacerVisible(false);
+                hacerVisibleNewUsers(false);
             }
         }
 
     }//GEN-LAST:event_texto_contraseña_ventanaNewUsersKeyReleased
-    public void hacerVisible(boolean esVisible) {
+    public void hacerVisibleNewUsers(boolean esVisible) {
         if (esVisible) {
             requisitosContraseña_lbl.setVisible(true);
             requisitosContraseña2_lbl.setVisible(true);
