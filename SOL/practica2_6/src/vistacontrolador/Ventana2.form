@@ -48,7 +48,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="92" max="32767" attributes="0"/>
-                  <Component id="logCorrectoLbl" min="-2" pref="211" max="-2" attributes="0"/>
+                  <Component id="logCorrectoLbl" pref="211" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
@@ -80,7 +80,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="imagen_ventana2" pref="94" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="logCorrectoLbl" min="-2" max="-2" attributes="0"/>
+                  <Component id="logCorrectoLbl" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="nuevacuenta_button_ventana2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>

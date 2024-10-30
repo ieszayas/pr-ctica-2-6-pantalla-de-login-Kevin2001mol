@@ -21,7 +21,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
 
     private Border bordeVerde = BorderFactory.createLineBorder(Color.GREEN, 1);
     public static Border bordeRojo = BorderFactory.createLineBorder(Color.RED, 2);
-    public static Border bordeNormal = BorderFactory.createLineBorder(Color.GRAY, 0);
+    public static Border bordeNormal = BorderFactory.createLineBorder(Color.GRAY, 1);
 
     public Ventana_new_Users() {
 
