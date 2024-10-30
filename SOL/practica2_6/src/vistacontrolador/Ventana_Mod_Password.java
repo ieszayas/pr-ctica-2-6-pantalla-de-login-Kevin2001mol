@@ -1,8 +1,6 @@
 package vistacontrolador;
 
 import static BBDD.BBDD.actualizarContraseña;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 import static modelo.Usuario.comprobarIndiceUser;

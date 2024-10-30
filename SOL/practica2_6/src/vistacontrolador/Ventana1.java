@@ -4,16 +4,12 @@ import static BBDD.BBDD.cargarUsuarios;
 import static BBDD.BBDD.crearBaseDeDatos;
 import static BBDD.BBDD.crearTablaUsuarios;
 import static BBDD.BBDD.quiereContinuar;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Font;
 import java.awt.Point;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
-import modelo.Usuario;
 import static modelo.Usuario.hardcodeados;
-import static modelo.Usuario.recorrerUsers;
+
 
 public class Ventana1 extends javax.swing.JFrame {
 
