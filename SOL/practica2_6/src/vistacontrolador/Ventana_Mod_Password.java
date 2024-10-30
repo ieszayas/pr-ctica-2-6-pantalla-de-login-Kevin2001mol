@@ -1,6 +1,7 @@
 package vistacontrolador;
 
 import static BBDD.BBDD.actualizarContraseña;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 import static modelo.Usuario.comprobarIndiceUser;
@@ -13,7 +14,7 @@ import static vistacontrolador.Ventana_new_Users.bordeRojo;
 public class Ventana_Mod_Password extends javax.swing.JFrame {
 
     public static Usuario user;
-    //private Icon iconoUpdate = new ImageIcon(getClass().getClassLoader().getResource("imagenes/okPasswd.png"));
+    private ImageIcon iconoUpdate = new ImageIcon("./src/Imagenes/okPasswd.png");
 
     public Ventana_Mod_Password(Usuario usuario) {
         user = usuario;
@@ -169,7 +170,7 @@ public class Ventana_Mod_Password extends javax.swing.JFrame {
         if (actualizarContraseña(user, newPasswd)) {
             hardcodeados.get(comprobarIndiceUser(user.getUsuario())).setPassword(newPasswd);//cambio la contraseña en memoria
             JOptionPane.showMessageDialog(this, "La contraseña ha sido cambiada correctamente.");
-            //iconoModPasswd_lbl.setIcon(iconoUpdate);
+            iconoModPasswd_lbl.setIcon(iconoUpdate);
         } else {
             JOptionPane.showMessageDialog(this, "La contraseña no ha podido ser cambiada correctamente.");
         }
