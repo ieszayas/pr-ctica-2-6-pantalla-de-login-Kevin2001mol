@@ -208,7 +208,7 @@ public class Ventana1 extends javax.swing.JFrame {
         int indice = 0;
         boolean existe = false;
         for (int i = 0; i < hardcodeados.size(); i++) {
-            if (hardcodeados.get(i).getUsuario().equalsIgnoreCase(usuario_field.getText())) {
+            if (hardcodeados.get(i).getUsuario().equals(usuario_field.getText())) {
                 existe = true;
                 break;
             }
@@ -232,7 +232,7 @@ public class Ventana1 extends javax.swing.JFrame {
     }
 
     public boolean comprobarPassword(String nombre_usr, int index) {
-        if (hardcodeados.get(index).getPassword().equalsIgnoreCase(passwordToString(password_field))) {
+        if (hardcodeados.get(index).getPassword().equals(passwordToString(password_field))) {
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");

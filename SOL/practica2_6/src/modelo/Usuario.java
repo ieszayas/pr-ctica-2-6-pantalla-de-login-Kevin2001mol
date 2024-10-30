@@ -88,7 +88,7 @@ public class Usuario {
         int indice = 0;
         for (int i = 0; i < hardcodeados.size(); i++) {
 
-            if (hardcodeados.get(i).getUsuario().equalsIgnoreCase(nombre)) {
+            if (hardcodeados.get(i).getUsuario().equals(nombre)) {
                 return indice;
 
             } else {

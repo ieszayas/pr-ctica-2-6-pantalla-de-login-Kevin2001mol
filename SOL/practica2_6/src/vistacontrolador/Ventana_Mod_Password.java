@@ -160,7 +160,7 @@ public class Ventana_Mod_Password extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "La nueva contraseña no puede estar vacia.");
             return;//porque este return se lo fuma?
         }
-        if (newPasswd.equalsIgnoreCase(user.getPassword())) {
+        if (newPasswd.equals(user.getPassword())) {
             JOptionPane.showMessageDialog(this, "La contraseña no puede ser igual a la que ya tenias.");
             return;
         }

@@ -299,7 +299,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El campo de contraseña se encuentra vacio!", "Contraseña Vacia", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (!(password.equalsIgnoreCase(password_confirm))) {//si las contraseñas no coinciden
+        if (!(password.equals(password_confirm))) {//si las contraseñas no coinciden
             JOptionPane.showMessageDialog(this, "La contraseña no se corresponde con la confirmacion de la contraseña!", "Confirmacion de contraseña erroena ", JOptionPane.ERROR_MESSAGE);
             resetearValoresContraseña();
             return;
@@ -322,8 +322,6 @@ public class Ventana_new_Users extends javax.swing.JFrame {
             return;
         }
 
-       
-        
         if (user.getFecha_nac() != null) {
             if (!esFechaFutura(fecha_nac_calendario)) {
                 if (!esMayorDeEdad(user.getFecha_nac())) {
@@ -417,7 +415,7 @@ public class Ventana_new_Users extends javax.swing.JFrame {
         String password_confirmar = passwordToString(texto_confirmarContraseña_ventanaNewUsers);
 
         Border rojo = BorderFactory.createLineBorder(Color.RED, 2);
-        if (!(password_confirmar.equalsIgnoreCase(password))) {
+        if (!(password_confirmar.equals(password))) {
             texto_confirmarContraseña_ventanaNewUsers.setBorder(rojo);
         } else {
             texto_confirmarContraseña_ventanaNewUsers.setBorder(texto_apellidos_ventanaNewUsers.getBorder());
